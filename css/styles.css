@@ -5,6 +5,7 @@
 }
 
 body {
+    font-family: 'Open Sans', sans-serif;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -57,7 +58,7 @@ body {
 .nome-utente span,
 .ricevi,
 .cont-header span {
-    font-size: 14px;
+    font-size: 12px;
     font-weight: bold;
 }
 .icone i {
@@ -97,16 +98,18 @@ body {
     width: 98%;
     height: 25px;
     border: none;
+    border-radius: 0 3px 3px 0;
 }
 .input i {
     position: absolute;
     left: 30px;
     top: 14px;
-    z-index: 1;
+    color: #8f8c8c;
+
 }
 ::-moz-placeholder {
     text-align: center;
-    
+    opacity: 0.1;
 }
 
 /* content */
@@ -131,6 +134,27 @@ body {
 }
 .cont-main {
     flex-grow: 1;
-    padding: 20px;
+    box-sizing: border-box;
     overflow-y: auto;
+    overflow-x: hidden;
+}
+.cont-main img {
+    width: 100%;
+    height: 100%; 
+    /* height: 100vh; */
+}
+.cont-footer {
+    display: flex;
+    justify-content: space-around;
+    padding: 10px 0;
+    background-color: #f2eae2;
+
+}
+.cont-footer input {
+    width: 70%;
+    height: 20px;
+    border-radius: 5px;
+}
+.cont-footer i {
+    color: #8f8c8c;
 }
