@@ -7,6 +7,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" />
     <title>Boolzapp</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
     <link rel="stylesheet" href="./css/styles.css">
 
 </head>
@@ -16,9 +17,13 @@
       <aside class="side">
           <div class="side-up">
             <div class="nome-utente">
-                <div class="nome-utente-left">
+                <!-- <div class="nome-utente-left">
                     <img src="./img/avatar_io.jpg" alt="">
                     <span>Nome Utente</span>
+                </div> -->
+                <div v-model="user" class="nome-utente-left">
+                    <img :src="'./img/avatar'+ user.avatar +'.jpg'" alt="">
+                    <span class="ml">{{user.name}}</span>
                 </div>
                 <div class="icone">
                     <i class="fas fa-circle-notch"></i>
@@ -41,14 +46,23 @@
           </div>
           <div class="side-down">
             <div class="utenti">
-                <div class="user">
-                  <img class="ml" src="./img/avatar_1.jpg" alt="">
-                  <span class="ml">Michele</span>
-                </div>
-                <div class="user">
+                <!-- <ul class="user">
+                  <li>
+                    <img class="ml" src="./img/avatar_1.jpg" alt="">
+                    <span class="ml">Michele</span>
+                  </li>
+                  <li>
                     <img class="ml" src="./img/avatar_2.jpg" alt="">
                     <span class="ml">Fabio</span>
-                  </div>    
+                  </li> 
+                    
+                </ul>-->
+                   <ul class="user">
+                      <li v-for="contact in contacts">
+                        <img class="ml" :src="'./img/avatar'+ contact.avatar +'.jpg'" alt="">
+                        <span class="ml">{{contact.name}}</span> 
+                      </li>
+                  </ul>
             </div>
           </div>
           

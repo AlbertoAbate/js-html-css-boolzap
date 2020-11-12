@@ -74,13 +74,20 @@ body {
     align-items: flex-start;
 }
 .utenti .user {
-    display: flex;
-    align-items: center;
-    border-bottom: 1px solid #f1f1f1;
     width: 100%;
 }
-.utenti .user:last-child {
+.utenti .user li {
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #f1f1f1;   
+    list-style: none;
+}
+.utenti .user li:last-child {
     border: none;
+}
+.utenti .user li:hover {
+    cursor: pointer;
+    background-color: lightgrey;
 }
 /* notifiche */
 .notifiche {
