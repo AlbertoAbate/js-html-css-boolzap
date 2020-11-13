@@ -21,7 +21,7 @@
                     <img src="./img/avatar_io.jpg" alt="">
                     <span>Nome Utente</span>
                 </div> -->
-                <div v-model="user" class="nome-utente-left">
+                <div class="nome-utente-left">
                     <img :src="'./img/avatar'+ user.avatar +'.jpg'" alt="">
                     <span class="ml">{{user.name}}</span>
                 </div>
@@ -58,9 +58,13 @@
                     
                 </ul>-->
                    <ul class="user">
-                      <li v-for="contact in contacts">
+                      <li v-for="(contact,index) in contacts"
+                      :class="index == indexContact ? 'active' : ''"
+                      @click="setContact(index)" 
+                      >
                         <img class="ml" :src="'./img/avatar'+ contact.avatar +'.jpg'" alt="">
-                        <span class="ml">{{contact.name}}</span> 
+                        <span class="ml">{{contact.name}}</span>
+                        
                       </li>
                   </ul>
             </div>
@@ -85,6 +89,10 @@
         </section>
         <section class="cont-main">
             <img src="./img/mine.jpg" alt="">
+            <div class="wrap-message" :class="message.status"  v-for="(message,index) in contacts[indexContact].messages">
+              <div >{{message.message}}</div>
+            </div>
+            <!-- <div class="received">hello</div> -->
         </section>
         <section class="cont-footer">
             <i class="far fa-smile"></i>
