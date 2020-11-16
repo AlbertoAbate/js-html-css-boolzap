@@ -10,6 +10,8 @@ var app = new Vue({
             avatar: '_io'
         },
         indexContact: 0,
+        newMessage: '',
+        newDate: '',
         // Elenco contatti
         contacts: [
             {
@@ -21,6 +23,7 @@ var app = new Vue({
                         date: '10/01/2020 15:30:55',
                         message: 'Hai portato a spasso il cane?',
                         status: 'sent'
+                        
                     },
                     {
                         date: '10/01/2020 15:50:00',
@@ -101,6 +104,35 @@ var app = new Vue({
 
         setContact(index) {
             this.indexContact = index;
+        },
+
+         addMessage(){
+             if (this.newMessage.trim() !== '') {
+                 this.contacts[this.indexContact].messages.push({
+                    
+                    date: dayjs().format('D/MMM/YYYY HH:mm:ss'), 
+                    message: this.newMessage, 
+                    status: 'sent'
+                });
+                 this.newMessage ='';
+                 this.addRisposta();
+         }
+        },
+
+         addRisposta() {
+            setTimeout(() =>{ 
+                this.contacts[this.indexContact].messages.push({
+                   
+                    date: dayjs().format('D/MMM/YYYY HH:mm:ss'),
+                    message: 'ok, va bene!', 
+                    status: 'received'
+                }); 
+             }, 1000);
+            },
+            
+        addTempo() {
+            ;
         }
+
     }
 });
