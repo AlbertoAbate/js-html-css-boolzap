@@ -11,7 +11,6 @@ var app = new Vue({
         },
         indexContact: 0,
         newMessage: '',
-        newDate: '',
         // Elenco contatti
         contacts: [
             {
@@ -129,10 +128,6 @@ var app = new Vue({
                 }); 
              }, 1000);
             },
-            
-        addTempo() {
-            ;
-        }
 
     }
 });
