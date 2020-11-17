@@ -12,16 +12,16 @@
 
 </head>
 <body>
-  <div id="app" class="container">
+  <div id="app" class="container flex">
       <!-- sidebar -->
-      <aside class="side">
+      <aside class="side flex">
           <div class="side-up">
-            <div class="nome-utente">
+            <div class="nome-utente flex">
                 <!-- <div class="nome-utente-left">
                     <img src="./img/avatar_io.jpg" alt="">
                     <span>Nome Utente</span>
                 </div> -->
-                <div class="nome-utente-left">
+                <div class="nome-utente-left flex">
                     <img :src="'./img/avatar'+ user.avatar +'.jpg'" alt="">
                     <span class="ml">{{user.name}}</span>
                 </div>
@@ -32,20 +32,20 @@
                 </div>         
               </div>
               <!-- notifiche -->
-              <div class="notifiche">
+              <div class="notifiche flex">
                 <i class="fas fa-bell-slash"></i>
                 <div class="ml">
-                    <span class="ricevi">Ricevi notifiche di nuovi messaggi</span>
-                    <span class="attiva-notifiche">Attiva notifiche desktop</span>
+                    <span class="ricevi flex">Ricevi notifiche di nuovi messaggi</span>
+                    <span class="attiva-notifiche flex">Attiva notifiche desktop</span>
                 </div>           
               </div>
-              <div class="input">
-                <input type="text" placeholder="Cerca o inizia una nuova chat">
+              <div class="input flex">
                 <i class="fa fa-search"></i>
+                <input type="text" placeholder="Cerca o inizia una nuova chat">                
               </div>
           </div>
           <div class="side-down">
-            <div class="utenti">
+            <div class="utenti flex">
                 <!-- <ul class="user">
                   <li>
                     <img class="ml" src="./img/avatar_1.jpg" alt="">
@@ -58,7 +58,7 @@
                     
                 </ul>-->
                    <ul class="user">
-                      <li v-for="(contact,index) in contacts"
+                      <li class="flex" v-for="(contact,index) in contacts"
                       :class="index == indexContact ? 'active' : ''"
                       @click="setContact(index)" 
                       >
@@ -73,12 +73,12 @@
       </aside>
       <!-- main -->
       <main class="content">
-        <section class="cont-header">
-            <div class="michele">
+        <section class="cont-header flex">
+            <div class="michele flex">
                 <img :src="'./img/avatar'+ contacts[indexContact].avatar +'.jpg'" alt="">
                 <div>
-                   <span>{{contacts[indexContact].name}}</span>
-                   <span class="accesso">Ultimo accesso oggi alle 10.35</span> 
+                   <span class="flex">{{contacts[indexContact].name}}</span>
+                   <span class="accesso flex">Ultimo accesso oggi alle 10.35</span> 
                 </div>
             </div>
             <div class="icone">
@@ -89,7 +89,7 @@
         </section>
         <section class="cont-main">
             <!-- <img src="./img/mine.jpg" alt=""> -->
-            <div class="wrap-message" :class="message.status"  v-for="(message,index) in contacts[indexContact].messages">
+            <div class="wrap-message flex" :class="message.status"  v-for="(message,index) in contacts[indexContact].messages">
               <div>
                 <span class="message-time">{{ message.message }}</span>
                 <span class="data-time">{{ message.date }}</span>
@@ -100,7 +100,7 @@
             </div>
             <!-- <div class="received">hello</div> -->
         </section>
-        <section class="cont-footer">
+        <section class="cont-footer flex">
             <i class="far fa-smile"></i>
             <input type="text" placeholder="Scrivi un messaggio" v-model="newMessage" v-on:keyup.enter="addMessage">
             <i class="fas fa-microphone"></i>

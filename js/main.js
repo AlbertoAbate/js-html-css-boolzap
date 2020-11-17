@@ -104,30 +104,36 @@ var app = new Vue({
         setContact(index) {
             this.indexContact = index;
         },
-
+        //  funzione per aggiungere un nuovo messaggio
          addMessage(){
              if (this.newMessage.trim() !== '') {
                  this.contacts[this.indexContact].messages.push({
                     
+                    // inserimento data con dayjs
                     date: dayjs().format('D/MMM/YYYY HH:mm:ss'), 
                     message: this.newMessage, 
                     status: 'sent'
                 });
+
+                // pulizia
                  this.newMessage ='';
+
                  this.addRisposta();
          }
         },
 
+        // funzione per aggiungere una risposta automatica dopo 1 sec
          addRisposta() {
             setTimeout(() =>{ 
                 this.contacts[this.indexContact].messages.push({
-                   
+                    
+                    // inserimento data con dayjs
                     date: dayjs().format('D/MMM/YYYY HH:mm:ss'),
                     message: 'ok, va bene!', 
                     status: 'received'
                 }); 
              }, 1000);
-            },
+            }
 
     }
 });
