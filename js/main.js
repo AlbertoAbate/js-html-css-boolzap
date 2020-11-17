@@ -10,6 +10,7 @@ var app = new Vue({
             avatar: '_io'
         },
         indexContact: 0,
+        cerca: '',
         newMessage: '',
         // Elenco contatti
         contacts: [
@@ -133,7 +134,15 @@ var app = new Vue({
                     status: 'received'
                 }); 
              }, 1000);
-            }
-
-    }
-});
+            },
+        
+         keyPc() {
+             this.contacts.forEach(element => {
+                 if (element.name.toLowerCase().includes(this.cerca.toLowerCase())) {
+                     element.visible = true
+                 } else {
+                     element.visible = false
+                 }
+             });
+         }
+}});

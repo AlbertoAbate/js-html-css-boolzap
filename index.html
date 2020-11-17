@@ -41,7 +41,7 @@
               </div>
               <div class="input flex">
                 <i class="fa fa-search"></i>
-                <input type="text" placeholder="Cerca o inizia una nuova chat">                
+                <input type="text" placeholder="Cerca o inizia una nuova chat" v-model="cerca" v-on:keyup="keyPc">                
               </div>
           </div>
           <div class="side-down">
@@ -59,6 +59,7 @@
                 </ul>-->
                    <ul class="user">
                       <li class="flex" v-for="(contact,index) in contacts"
+                      v-show="contact.visible"
                       :class="index == indexContact ? 'active' : ''"
                       @click="setContact(index)" 
                       >
