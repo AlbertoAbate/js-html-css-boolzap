@@ -187,7 +187,7 @@ body {
 .cont-main .wrap-message.sent div {
     display: flex;
     position: relative;
-    width: fit-content;
+    margin-top: 30px;
     font-size: 12px;
     padding: 15px;
     border-radius: 5px;
