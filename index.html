@@ -90,7 +90,10 @@
         </section>
         <section class="cont-main">
             <!-- <img src="./img/mine.jpg" alt=""> -->
-            <div class="wrap-message flex" :class="message.status"  v-for="(message,index) in contacts[indexContact].messages">
+            <div class="wrap-message flex" 
+                 :class="message.status"  
+                 v-for="(message,index) in contacts[indexContact].messages"
+                 >
               <div>
                 <span class="message-time">{{ message.message }}</span>
                 <span class="data-time">{{ message.date }}</span>
@@ -103,7 +106,11 @@
         </section>
         <section class="cont-footer flex">
             <i class="far fa-smile"></i>
-            <input type="text" placeholder="Scrivi un messaggio" v-model="newMessage" v-on:keyup.enter="addMessage">
+            <input type="text" 
+                   placeholder="Scrivi un messaggio" 
+                   v-model="newMessage" 
+                   v-on:keyup.enter="addMessage"
+            >
             <i class="fas fa-microphone"></i>
         </section>
       </main>
